@@ -664,6 +664,9 @@
           "include": "#comments"
         },
         {
+          "include": "#expression-trees"
+        },
+        {
           "begin": "(?=^\\s*<<)",
           "end": "(?<=>>)",
           "patterns": [
@@ -1789,6 +1792,31 @@
         },
         {
           "include": "#string-single-quoted"
+        }
+      ]
+    },
+    "expression-trees": {
+      "begin": "([a-zA-Z0-9_]+)`",
+      "beginCaptures": {
+        "0": {
+          "name": "support.class.php"
+        }
+      },
+      "end": "`",
+      "name": "source.hack.expression-tree.start",
+      "contentName": "source.hack.expression-tree.content",
+      "patterns": [
+        {
+          "include": "#comments"
+        },
+        {
+          "begin": "\\$\\{",
+          "end": "\\}",
+          "patterns": [
+            {
+              "include": "#language"
+            }
+          ]
         }
       ]
     },
